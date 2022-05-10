@@ -1,0 +1,26 @@
+@use "../utils" as u;
+
+#main-nav{
+    background-color: u.$color;
+    ul{
+        display: flex;
+        flex-wrap: wrap;
+        flex-basis: 100%;
+        justify-content: flex-start;
+        padding: 0px;
+
+        li{
+            list-style-type: none;
+            padding: 15px;
+            height: 20px;
+
+            a{
+                text-decoration: none;
+                color: white;
+                font-size: u.$font-size-normal;
+                font-family: u.$font-lato;
+            }
+            
+        }
+    }
+}

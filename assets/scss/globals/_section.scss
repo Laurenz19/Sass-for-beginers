@@ -1,0 +1,6 @@
+@use "../utils" as u;
+
+section h1{
+    font-size: u.$heading-size;
+    color: u.$color;
+}

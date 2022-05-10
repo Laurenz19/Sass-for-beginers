@@ -1,14 +1,1 @@
-/* Variables */
-$color : rgb(53, 0, 105);
-$sectionHeading: 24px;
-
-#main-nav{
-    background-color: $color;
-}
-
-section h1{
-    font-size: $sectionHeading;
-    color: $color;
-}
-
-/* Nesting Styles */
+@forward "globals";

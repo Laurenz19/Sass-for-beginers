@@ -121,7 +121,22 @@ Stylesheets loaded by @use are called "modules".
 The simplest @use rule is written @use "<url>", which loads the module at the given URL.
 43:..=> Responsive design
 
+Nesting Styles:
+(imbriquées)
+Example:
+ div{
+   margin:0px;
+   ul{
+     padding:0px
+   }
+ }
 
+ Mixins:
+ @Mixin rules 
+ Mixin allows us to define styles that can be re-used throughout our stylesheet.
+
+ Mixins are defined using the @mixin at-rule, which is written 
+ @mixin <name> { ... } or @mixin name(<arguments...>) { ... }
 
 
 
