@@ -1,0 +1,134 @@
+*****************************************************
+    Learning SASS from scratch with The net.ninja
+*****************************************************
+
+Introduction:
+- SASS is an extension to CSS that can help us write more fexible style
+- Use variable, functions, conditional statements and more.
+- split our SASS files up into modules, making it easier to keep on top of CSS for large project.
+- SASS is written in RUBY
+
+NB: The browser will not understand our SASS code, therefore we need to translate it into CSS code.
+
+What we should know first?
+- SASS looks similar with a programming language, so we should be comfortable with those progrmming fundamentals
+  such as functions, variables, condition,... 
+- CSS
+
+Installing and compiling SASS:
+- There are 2 ways to install SASS on our computer:
+  First of all, by using command line but for that we need to install Rubi first because it is writting with it.
+  And then by using a stand alone application.
+  Here is the link https://sass-lang.com/install
+
+  All steps by using command line:
+  - install Rubi (https://rubyinstaller.org/downloads/)
+  - add this path: source\Ruby31-x64\bin it on path variable.
+  - install sass 
+    > gem install sass
+    > sass -v (to check if sass is installed)
+
+---------------------------------
+  With CoderCode
+---------------------------------
+
+What is SASS?
+- SASS is a CSS extension language, and gives our CSS superpower.
+- SASS is an easiest way for developper to write CSS but we need to translate it to CSS code so that the browser can 
+understand the code.
+
+There are two syntax to write SASS code:
+
+example:
+  .sass (don't need brackets)
+  
+  $font-stack: Helvetica, sans-serif
+  $primary-color: #333
+
+  body
+    font: 100% $font-stack
+    color: $primary-color
+
+
+  .scss
+
+  $font-stack: Helvetica, sans-serif;
+  $primary-color: #333;
+
+  body {
+    font: 100% $font-stack;
+    color: $primary-color;
+  }
+
+  .css
+  body {
+    font: 100% Helvetica, sans-serif;
+    color: #333;
+  }
+
+How to compile SASS?
+With visual studio, we can use live compiler sass extension.
+After installing it, set your json setting (visual studio setting).
+
+- The map css file tell us about the location of sass file.
+
+SASS Partials:
+Allows us to split up our code into multiple styles, to keep more organize our code.
+This allows us to modularize our CSS code and allows us for better structure of our 
+stylesheet.
+A partial is a sass file named with a leading underscore, i.e _partial.scss.
+
+The underscore lets sass know that the specific file is a partial and will not generate
+into a css file.
+
+Avantages:
+- easy to debug
+- allows us to works with others developpers in the same time
+
+1- Getting start with SASS code: 
+@forward rules
+https://sass-lang.com/documentation/at-rules/forward
+
+The rule is written @forward "<url>". It loads the module at the given URL just like @use,
+but it makes the public members of the loaded module available to users of your module as though they were defined directly in your module
+
+Variables:
+We use variables to refers things like font-size, color, spacing and so on...
+
+https://sass-lang.com/documentation/variables
+
+SASS variables are simple: you assign a value to a name that begins with $, and then you can refer to that name instead of the value itself.
+But despite their simplicity, they're one of the most useful tools Sass brings to the table.
+
+Pros: (Avantages)
+Variables make it possible to reduce repetition, do complex math, configure libraries, and much more.
+
+Syntax:
+<variable>: <expression>
+
+Example:
+$font-size: 12px;
+
+
+/* Remind */
+The root selector: 
+The :root selector allows you to target the highest-level “parent” element in the DOM, or document tree.
+
+@use rules:
+The @use rule loads mixins, functions, and variables from other Sass stylesheets, and combines CSS from multiple stylesheets together. 
+Stylesheets loaded by @use are called "modules".
+
+The simplest @use rule is written @use "<url>", which loads the module at the given URL.
+43:..=> Responsive design
+
+
+
+
+
+
+
+
+
+    
+
+
