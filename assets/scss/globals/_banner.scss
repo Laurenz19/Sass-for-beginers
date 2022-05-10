@@ -1,0 +1,9 @@
+@use  "../utils/" as u;
+.lead-banner{
+    @include u.banner;
+    text-align: end;
+}
+
+.lessons-banner{
+    @include u.banner;
+}

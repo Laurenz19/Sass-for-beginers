@@ -1,0 +1,30 @@
+@use "./fonts" as u;
+//Mixins
+@mixin banner {
+    width: 100%;
+    position: relative;
+    color: white;
+    .banner-content{
+        position: absolute;
+        width: 100%;
+        top: 50px;
+        right: 15px;
+    }
+
+    img{
+        width: 100%;
+    }
+
+    span{
+        font-size: u.$bannerHeading;
+        display: block;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    span.title{
+        margin-bottom: 10px;
+        font-weight: normal;
+    }
+}
+

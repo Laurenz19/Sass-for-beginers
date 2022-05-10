@@ -138,6 +138,15 @@ Example:
  Mixins are defined using the @mixin at-rule, which is written 
  @mixin <name> { ... } or @mixin name(<arguments...>) { ... }
 
+ Example:
+ @mixin reset-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+Mixin is a chunk of a reusable of css or sass  
+
 
 
 
