@@ -7,8 +7,8 @@
     .banner-content{
         position: absolute;
         width: 100%;
-        top: 50px;
-        right: 15px;
+        top: 100px;
+        /* right: 10%; */
     }
 
     img{
@@ -28,3 +28,36 @@
     }
 }
 
+/*
+    pass the column & margin that we want
+*/
+@mixin grid($cols, $margin) {
+    float: left;
+    margin-right: $margin;
+    margin-bottom: $margin;
+    width: ((100% - (($cols - 1) * $margin))/$cols);
+    &:nth-child(#{$cols}n){
+        margin-right: 0;
+    }
+}
+
+
+@mixin clearFix {
+    &:after{
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+
+@mixin hover{
+    &:hover{
+      @content;  
+    }  
+}
+
+@mixin mediaQuery($size){
+    @media screen and (max-width: $size) {
+        @content;
+    }
+}

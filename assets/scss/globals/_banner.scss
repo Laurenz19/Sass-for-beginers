@@ -2,8 +2,26 @@
 .lead-banner{
     @include u.banner;
     text-align: end;
+
+    .banner-content{
+        right: 5%;
+    }
+   
 }
 
 .lessons-banner{
     @include u.banner;
+    
+    img{
+        height: 700px;
+    }
+    .banner-content{
+        left: 5%;
+
+        li{
+            list-style: none;
+            margin: 50px;
+            font-size: (u.$font-size-normal + 15);
+        }
+    }
 }

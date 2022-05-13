@@ -8,6 +8,11 @@
         flex-basis: 100%;
         justify-content: flex-start;
 
+        @include u.mediaQuery(469px){
+            flex-flow: column;
+            text-align: center;
+        }
+
         li{
             list-style-type: none;
             padding: 15px;
@@ -22,7 +27,10 @@
                 font-family: u.$font-lato;
                 text-align: center;
             }
-            
+
+           @include u.hover{
+            background-color: rgb(55, 182, 182);
+           } 
         }
     }
 }

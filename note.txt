@@ -147,6 +147,264 @@ Example:
 
 Mixin is a chunk of a reusable of css or sass  
 
+Example:
+@mixin banner {
+    width: 100%;
+    position: relative;
+    color: white;
+    .banner-content{
+        position: absolute;
+        width: 100%;
+        top: 50px;
+        right: 15px;
+    }
+
+    img{
+        width: 100%;
+    }
+
+    span{
+        font-size: u.$bannerHeading;
+        display: block;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    span.title{
+        margin-bottom: 10px;
+        font-weight: normal;
+    }
+}
+
+.lessons-banner{
+    @include banner;
+}
+
+@mixin google-font($family) {
+  @import url("http://fonts.googleapis.com/css?family=#{$family}");
+}
+
+@include google-font("Droid Sans");
+
+
+
+Import:
+@import rules
+Sass extends CSS's @import rule with the ability to import Sass and CSS stylesheets, 
+providing access to mixins, functions, and variables and combining multiple stylesheets' 
+CSS together.
+
+Example:
+@import 'foundation/code', 'foundation/lists';
+
+
+Pseudo Class:
+&:...
+
+Example:
+         li{
+            list-style-type: none;
+            padding: 15px;
+            height: 20px;
+            flex-grow: 0;
+            flex-shrink: 1;
+
+            a{
+                text-decoration: none;
+                color: white;
+                font-size: u.$font-size-normal;
+                font-family: u.$font-lato;
+                text-align: center;
+            }
+
+            &:hover{
+                background-color: rgba(128, 128, 128, 0.444);
+            }   
+        }
+
+Math operators: 
+available link: https://sass-lang.com/documentation/operators
+
+In SASS we have an available tools such as :
+- the addition, multiplication, subtraction,... Mathematicals operators
+
+- SASS supports a handful of useful operators for working with different values.
+These include the standard mathematical operators like + and *, as well as operators 
+for various other types:
+
+
+   .  == and != are used to check if two values are the same.
+   .  +, -, *, /, and % have their usual mathematical meaning for numbers, 
+      with special behaviors for units that matches the use of units in scientific math.
+   .  <, <=, >, and >= check whether two numbers are greater or less than one another.
+   .  and, or, and not have the usual boolean behavior. Sass considers every value “true” except for false and null.
+   .  +, -, and / can be used to concatenate strings.
+
+Order of operations:
+
+   1- The unary operators not, +, -, and /.
+   2- The *, /, and % operators.
+   3- The + and - operators.
+   4- The >, >=, < and <= operators.
+   5- The == and != operators.
+   6- The and operator.
+   7- The or operator.
+   8- The = operator, when it’s available.
+
+  Creating Grid with Math Operators:
+  
+  @mixin grid($cols, $margin) {
+      float: left;
+      margin-right: $margin;
+      margin-bottom: $margin;
+      width: ((100% - (($cols - 1) * $margin))/$cols);
+      &:nth-child(#{$cols}n){
+          margin-right: 0;
+      }
+  }
+
+@Content aka Content directive:
+This directive is "simple", it allows us to reduce repetitive code.
+
+But knowing when to use @content in advance is a touch harder. Here are 
+at least 5 common use cases and examples from around the web.
+
+Uses Cases for The Content Directive, aka @content
+
+Use @contentfor :
+
+    1- @media queries,
+    2- keyframes animation,
+    3- buttons,
+    4- nested selectors,
+    5- notifications
+
+If you have other times you use @content, drop a comment so others can see other uses cases.
+Who Is This For?
+
+Newish to using SCSS and would like multiple examples/context for how to use the @content.
+
+1- @media queries:
+// located in _mixin.scss partial file
+@mixin small-screen {
+  @media screen and (min-width: 800px;) {
+    @content;
+  }
+}
+
+// located in /modules/_media.scss partial file
+@include small-screen {
+  .container {
+    width: 600px;
+  }
+}
+
+// above mixin and @media become:
+@media screen and (min-width: 800px;) {
+   .container {
+      width: 600px;
+    }
+}
+
+2- keyframes & animation
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+// located in modules/_keyframes.scss
+@include keyframes(fadeIn) {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
+// The above mixin and @contents compiles into styles.css:
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
+check this link for more details: 
+https://dev.to/brad_beggs/scss-content-use-cases-examples-261l
+https://sass-lang.com/documentation/at-rules/mixin#content-blocks
+
+@mixin hover {
+  &:not([disabled]):hover {
+    @content;
+  }
+}
+
+.button {
+  border: 1px solid black;
+  @include hover {
+    border-width: 2px;
+  }
+}
+
+@if statement:
+https://sass-lang.com/documentation/at-rules/control/if
+Allows us to add a condition in our css.
+
+Example:
+@mixin theme-colors($light-theme: true) {
+  @if $light-theme {
+    background-color: $light-background;
+    color: $light-text;
+  } @else {
+    background-color: $dark-background;
+    color: $dark-text;
+  }
+}
+
+.banner {
+  @include theme-colors($light-theme: true);
+  body.dark & {
+    @include theme-colors($light-theme: false);
+  }
+}
+
+
+
+
+
+
+
 
 
 

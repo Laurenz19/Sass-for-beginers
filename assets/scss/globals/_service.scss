@@ -1,0 +1,26 @@
+#services{
+    .wrapper{
+        max-width: 90%;
+        margin: 10px auto;
+        ul{
+            display: flex;
+            list-style: none;
+            justify-content: center;
+            justify-items: center;
+            flex-wrap: wrap;
+
+            li{
+                margin: 15px 50px;
+            }
+
+            a{
+                display: block;
+                text-align: center;
+                text-decoration: none;
+                color: black;
+            }
+        }
+       
+    }
+    
+}
